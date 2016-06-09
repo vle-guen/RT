@@ -6,7 +6,7 @@
 /*   By: avella <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 16:45:33 by avella            #+#    #+#             */
-/*   Updated: 2016/06/09 12:20:47 by vle-guen         ###   ########.fr       */
+/*   Updated: 2016/06/09 13:55:14 by vle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,22 @@ void	init_eye(t_env *e)
 	e->eye_dir.z = 0;
 }
 
-void	pov(t_env *e)
+void	init_viewpoint(t_env *e)
 {
-	t_obj *pov;
+	t_obj *viewpoint;
 
-	pov = e->obj;
-	while (pov)
+	viewpoint = e->obj;
+	while (viewpoint)
 	{
-		if (pov->type == 9)
+		if (viewpoint->type == 9)
 		{
-			e->eye_pos.x = pov->pos.x;
-			e->eye_pos.y = pov->pos.y;
-			e->eye_pos.z = pov->pos.z;
-			e->eye_dir.x = pov->rot.x;
-			e->eye_dir.y = pov->rot.y;
-			e->eye_dir.z = pov->rot.z;
+			e->eye_pos.x = viewpoint->pos.x;
+			e->eye_pos.y = viewpoint->pos.y;
+			e->eye_pos.z = viewpoint->pos.z;
+			e->eye_dir.x = viewpoint->rot.x;
+			e->eye_dir.y = viewpoint->rot.y;
+			e->eye_dir.z = viewpoint->rot.z;
 		}
-		pov = pov->next;
+		viewpoint = viewpoint->next;
 	}
 }
